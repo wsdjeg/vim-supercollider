@@ -22,9 +22,11 @@
 " along with SCVIM.  If not, see <http://www.gnu.org/licenses/>.
 
 
-" source the syntax file as it can change
-" so $SCVIM_DIR/syntax/supercollider.vim
-runtime! syntax/supercollider.vim
+execute "set tags+=".s:sclangTagsFile
+
+"  matchit
+let b:match_skip = 's:scComment\|scString\|scSymbol'
+let b:match_words = '(:),[:],{:}'
 
 if exists("loaded_scvim") || &cp
    finish
